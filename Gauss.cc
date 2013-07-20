@@ -1,11 +1,10 @@
 #include "Gauss.h"
 
-Gauss::Gauss(double mean = 0.0, double variance = 1.0, int _seed = 0) : 
-  seed(_seed), 
-	rng(boost::mt19937(seed)), 
-	dist_normal(boost::normal_distribution<double>(mean,variance)),
-	generator(boost::variate_generator<boost::mt19937,boost::normal_distribution<double> > (rng, dist_normal)){}
+Gauss::Gauss(uint _seed) : seed(_seed), rng(seed){ 
+	boost::variate_generator<mt19937, DIST> generator(rng, DIST(0.0, 1.0));
+}
 
 double Gauss::operator()() const{
 	return generator();
 }
+
