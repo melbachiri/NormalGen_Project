@@ -11,14 +11,14 @@ typedef unsigned int uint;
 
 class Gauss{
 public:
-	Gauss(double _mean = 0.0, double _variance = 1.0, unsigned int _seed = 0);
+	Gauss(double _mean = 0.0, double _variance = 1.0, uint _seed = 0);
 	double operator()() const;
 
 private:
 	double mean, variance;
-	int seed;
-	boost::mt19937 rng;
-	boost::normal_distribution<double> dist_normal;
+	uint seed;
+	boost::mt19937 rng;	// Générateur Mers. twistter
+	boost::normal_distribution<double> dist_normal;		// la distribution
 	boost::variate_generator<boost::mt19937, boost::normal_distribution<double> > generator;
 };
 
