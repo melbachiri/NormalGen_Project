@@ -7,7 +7,7 @@
 #include <boost/random/mersenne_twister.hpp>
 #include <boost/random/variate_generator.hpp>
 
-typedef  uint unsigned int;
+typedef unsigned int uint;
 
 class Gauss{
 public:
